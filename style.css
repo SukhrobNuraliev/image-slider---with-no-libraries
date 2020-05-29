@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+* {
+  border-style: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #333;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100wh;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.slide.current {
+  opacity: 1;
+}
+
+.slide .content {
+  position: absolute;
+  bottom: 70px;
+  left: -600px;
+  opacity: 0;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.719);
+  color: #333;
+  padding: 2rem;
+}
+
+.slide.current .content {
+  opacity: 1;
+  transform: translateX(600px);
+  transition: all 0.6s ease-in-out 0.3s;
+}
+
+/* BUTTONS */
+
+button#next {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+}
+button#prev {
+  position: absolute;
+  top: 50%;
+  lefft: 15px;
+}
+
+button {
+  padding: 13px;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: all ease 0.5s;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.664);
+  color: black;
+}
+
+/* BACKGROUND IMAGES */
+
+.slide:first-child {
+  background: url("img/adventure-alpine-background-black-and-white-355747.jpg")
+    no-repeat center center/cover;
+}
+.slide:nth-child(2) {
+  background: url("img/adventure-calm-clouds-dawn-414171.jpg") no-repeat center
+    center/cover;
+}
+.slide:nth-child(3) {
+  background: url("img/adventure-cold-daylight-fog-291732.jpg") no-repeat center
+    center/cover;
+}
+.slide:nth-child(4) {
+  background: url("img/altitude-clouds-cold-daylight-417173.jpg") no-repeat
+    center center/cover;
+}
+.slide:nth-child(5) {
+  background: url("img/person-on-a-bridge-near-a-lake-747964.jpg") no-repeat
+    center center/cover;
+}
+.slide:last-child {
+  background: url("img/snow-top-mountain-under-clear-sky-1054218.jpg") no-repeat
+    center center/cover;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 500px) {
+  .slide .content {
+    bottom: -300px;
+    left: 0;
+    width: 100%;
+  }
+  .content p {
+    padding-right: 2rem;
+  }
+
+  .slide.current .content {
+    transform: translateY(-300px);
+  }
+}
